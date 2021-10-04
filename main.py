@@ -17,6 +17,7 @@ def upload_image():
         with Image.open(watermark) as wtrmrk:
             image_copy = img.copy().convert("RGBA")
             wtrmrk = wtrmrk.convert("RGBA")
+            wtrmrk.thumbnail((200,200))
             position = ((image_copy.width - wtrmrk.width), (image_copy.height - wtrmrk.height))
             image_copy.paste(wtrmrk, position, wtrmrk)
             image_copy.show()
